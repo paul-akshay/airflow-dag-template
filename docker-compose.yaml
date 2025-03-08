@@ -52,10 +52,10 @@ x-airflow-common:
     PYTHONPATH: '/opt/airflow/dags:/opt/airflow/plugins'
 
   volumes:
-    - ../dags:/opt/airflow/dags/airflow-studio
-    - ../logs:/opt/airflow/logs
-    - ../plugins:/opt/airflow/plugins/airflow-studio
-    - ../utils:/opt/airflow/dags/utils
+    - ./dags:/opt/airflow/dags/airflow-studio
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins/airflow-studio
+    - ./utils:/opt/airflow/dags/utils
   user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
   depends_on:
     postgres:
@@ -113,7 +113,7 @@ services:
     <<: *airflow-common
     command: bash -c "airflow variables import variables/test/common_variables.json"
     volumes:
-      - ../variables:/opt/airflow/variables
+      - ./variables:/opt/airflow/variables
     depends_on:
       airflow-webserver:
         condition: service_healthy
