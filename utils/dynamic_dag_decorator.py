@@ -6,7 +6,7 @@ from functools import wraps
 from datetime import datetime
 
 
-def dynamic_dag(default_args=None, schedule_interval=None):
+def dynamic_dag(default_args=None):
     """
     Decorator to define a DAG template and dynamically generate DAGs
     based on YAML configurations in the same directory as the defining file.
@@ -26,6 +26,7 @@ def dynamic_dag(default_args=None, schedule_interval=None):
                         try:
                             config = yaml.safe_load(f)
                             dag_id = config.get("dag_id")
+                            schedule_interval = config.get("schedule_interval")
                             start_date = config.get("start_date", "2024-01-01")
 
                             if not dag_id:

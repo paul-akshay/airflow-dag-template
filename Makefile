@@ -25,11 +25,11 @@ build:
 
 start:
 	@echo "==============================================================="
-	@echo -e "Building and starting Required Docker containers. \xE2\x8F\xB3"
+	@echo "Building and starting Required Docker containers. \xE2\x8F\xB3"
 	@docker-compose -f ./docker-compose.yaml -p "$(AIRFLOW_DOCKER_IMAGE_NAME)" up -d
 	@echo "\xE2\x98\x80 Airflow Started at \033[38;5;2mlocalhost:8080\033[0m"
 	@echo "\xE2\x8C\xA8 Login with credentials \033[38;5;2mairflow:airflow\033[0m"
-	@echo "Logs can be found under \033[38;5;2airflow-studio/logs\033[0m "
+	@echo "Logs can be found under \033[38;5;2 airflow-studio/logs\033[0m "
 	@echo " "
 	@echo "==============================================================="
 
